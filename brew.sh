@@ -79,7 +79,6 @@ brew install ack
 #brew install exiv2
 brew install git
 brew install git-lfs
-brew install git-flow
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
@@ -94,7 +93,7 @@ brew install vbindiff
 brew install zopfli
 
 # Extras by DFG
-brew install cocoapods
+brew install git-flow
 
 # Remove outdated versions from the cellar.
 brew cleanup
