@@ -2,7 +2,7 @@
 
 # Override default cd command to list files in new directory
 function cd {
-	builtin cd "$@" && ls -Al
+	builtin cd "$@" && l
 }
 
 # Create a new directory and enter it

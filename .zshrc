@@ -109,5 +109,17 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+PATH="$HOME/bin:$PATH";
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{path,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
 export CLICOLOR="1"
 export LSCOLORS="exfxcxdxbxegedabagacad"
