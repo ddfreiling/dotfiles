@@ -1,0 +1,6 @@
+# Add relevant exports to the PATH
+PATH="$HOME/bin:$PATH";
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$PATH"
+PATH="$HOME/sdk/flutter/bin:$PATH"
+export PATH
