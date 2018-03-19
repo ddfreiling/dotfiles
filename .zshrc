@@ -117,5 +117,9 @@ for file in ~/.{exports,path,aliases,functions,extra,completion}; do
 done;
 unset file;
 
+# iTerm2 shell integration
+[[ -s ".iterm2-shell-integration.zsh" ]] && source ".iterm2-shell-integration.zsh"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "/home/dudette/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dudette/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/dfg/.sdkman"
+[[ -s "/Users/dfg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dfg/.sdkman/bin/sdkman-init.sh"
