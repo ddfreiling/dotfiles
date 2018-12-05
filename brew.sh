@@ -92,8 +92,16 @@ brew install tree
 brew install vbindiff
 brew install zopfli
 
-# Extras by DFG
+# BEGIN Additions by DFG
+brew install telnet
 brew install git-flow
+brew install tldr
+# Requirements for Appium
+brew install carthage
+brew install libimobiledevice --HEAD
+brew install ideviceinstaller
+brew install ios-webkit-debug-proxy
+# END Additions by DFG
 
 # Remove outdated versions from the cellar.
 brew cleanup

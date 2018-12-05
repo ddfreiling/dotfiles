@@ -71,6 +71,7 @@ plugins=(
   nmap
   osx
   react-native
+  ssh-agent
   xcode
   yarn
   zsh-autosuggestions
@@ -123,3 +124,15 @@ unset file;
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/dfg/.sdkman"
 [[ -s "/Users/dfg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dfg/.sdkman/bin/sdkman-init.sh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Disable shared tab history
+unsetopt inc_append_history
+unsetopt share_history
+
+###-tns-completion-start-###
+if [ -f /Users/dfg/.tnsrc ]; then 
+    source /Users/dfg/.tnsrc 
+fi
+###-tns-completion-end-###
