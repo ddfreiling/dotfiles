@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 
 # Override default cd command to list files in new directory
-function cd {
+function cd() {
 	builtin cd "$@" && l
 }
 
 # Funky ls with all the bells and whistles
-function lsf {
+function lsf() {
 	ls -AFoqv --color --group-directories-first | tail -n +2 && find -maxdepth 1 -type f -printf '%s\n' | awk '{total+=$1} END {print total" bytes"}'
 }
 
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
+}
+
+function findin() {
+	find . -name "$1" -maxdepth 10 -print0 | xargs -0 grep -F "$2"
 }
 
 # Change working directory to the top-most Finder window location
