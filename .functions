@@ -7,7 +7,7 @@ function cd() {
 
 # Funky ls with all the bells and whistles
 function lsf() {
-	ls -AFoqv --color --group-directories-first | tail -n +2 && find -maxdepth 1 -type f -printf '%s\n' | awk '{total+=$1} END {print total" bytes"}'
+	ls -AFoqvh --color --group-directories-first | tail -n +2 && find -maxdepth 1 -type f -printf '%s\n' | awk '{total+=$1} END {print "Total: " total" bytes"}'
 }
 
 # Create a new directory and enter it

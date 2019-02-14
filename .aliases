@@ -11,9 +11,16 @@ alias -- -="cd -"
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias cdcode="cd ~/code"
+alias cdc="cd ~/code"
 alias g="git"
-alias git="hub"
+alias gub="hub"
+
+###########################################################################
+# Remapping of LS commands to use GNU LS with colors and directory grouping
+###########################################################################
+
+# Always use gnu ls and color output
+alias ls="command gls ${colorflag}"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -34,9 +41,9 @@ alias ll="la"
 
 # List only directories
 alias lsd="ls -lh ${colorflag} | grep --color=never '^d'"
-
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+###########################################################################
+# END LS REMAP
+###########################################################################
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -117,7 +124,7 @@ alias spotoff="sudo mdutil -a -i off"
 alias spoton="sudo mdutil -a -i on"
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-alias plistbuddy="/usr/libexec/PlistBuddy"
+alias plistb="/usr/libexec/PlistBuddy"
 
 # Airport CLI alias
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
