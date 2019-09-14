@@ -98,6 +98,7 @@ brew install git-flow
 brew install tldr
 brew install swiftlint
 brew install libressl
+brew cask install provisionql
 # Requirements for Appium
 brew install carthage
 brew install libimobiledevice --HEAD

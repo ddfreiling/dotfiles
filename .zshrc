@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/dfg/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -92,13 +92,13 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
-  export EDITOR='nano'
+  export EDITOR='code'
 fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# ssh
+# SSH
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -119,12 +119,6 @@ done;
 unset file;
 
 # iTerm2 shell integration
-[[ -s ".iterm2-shell-integration.zsh" ]] && source ".iterm2-shell-integration.zsh"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/dfg/.sdkman"
-[[ -s "/Users/dfg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dfg/.sdkman/bin/sdkman-init.sh"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Disable shared tab history
@@ -132,7 +126,13 @@ unsetopt inc_append_history
 unsetopt share_history
 
 ###-tns-completion-start-###
-if [ -f /Users/dfg/.tnsrc ]; then 
-    source /Users/dfg/.tnsrc 
+if [ -f ${HOME}/.tnsrc ]; then
+    source ${HOME}/.tnsrc
 fi
 ###-tns-completion-end-###
+
+ # Load NVM
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
