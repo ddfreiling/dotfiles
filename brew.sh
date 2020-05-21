@@ -101,7 +101,7 @@ brew install libressl
 brew cask install provisionql
 # Requirements for Appium
 brew install carthage
-brew install libimobiledevice --HEAD
+brew install libimobiledevice
 brew install ideviceinstaller
 brew install ios-webkit-debug-proxy
 # END Additions by DFG
