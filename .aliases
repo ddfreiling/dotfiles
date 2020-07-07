@@ -14,6 +14,7 @@ alias dt="cd ~/Desktop"
 alias cdc="cd ~/code"
 alias g="git"
 alias gub="hub"
+alias docc="docker-compose"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
@@ -73,7 +74,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias flush="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -159,6 +160,7 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
-
 alias listening="sudo lsof -iTCP -sTCP:LISTEN -n -P"
+
+# Flutter shortcuts
+alias fpb="flutter pub run build_runner"
