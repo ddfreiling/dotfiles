@@ -134,5 +134,19 @@ fi
  # Load NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+###-tns-completion-start-###
+if [ -f /Users/b044554/.tnsrc ]; then 
+    source /Users/b044554/.tnsrc 
+fi
+###-tns-completion-end-###
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/b044554/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/b044554/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/b044554/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/b044554/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+if [ -f '/usr/local/share/zsh/site-functions' ]; then . '/usr/local/share/zsh/site-functions'; fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
