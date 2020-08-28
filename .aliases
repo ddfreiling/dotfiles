@@ -14,6 +14,7 @@ alias dt="cd ~/Desktop"
 alias cdc="cd ~/code"
 alias g="git"
 alias gub="hub"
+alias doc="docker"
 alias docc="docker-compose"
 
 ###########################################################################
@@ -74,7 +75,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias dnsflush="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -164,3 +165,7 @@ alias listening="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # Flutter shortcuts
 alias fpb="flutter pub run build_runner"
+
+# k3s cleanup
+# https://github.com/rancher/k3s/issues/1469
+alias k3s-cleanup="docker stop $(docker ps -a -q --filter 'name=k8s_') | xargs docker rm"
