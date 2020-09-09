@@ -68,6 +68,7 @@ plugins=(
   gradle
   gulp
   iterm2
+  jira
   nmap
   osx
   react-native
@@ -76,6 +77,12 @@ plugins=(
   yarn
   zsh-autosuggestions
 )
+
+export JIRA_URL=https://notalib.atlassian.net
+export JIRA_NAME=Daniel\ Freiling
+export JIRA_PREFIX=NOTA-
+export JIRA_DEFAULT_ACTION=dashboard
+
 
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
 
@@ -125,28 +132,15 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 unsetopt inc_append_history
 unsetopt share_history
 
-###-tns-completion-start-###
-if [ -f ${HOME}/.tnsrc ]; then
-    source ${HOME}/.tnsrc
-fi
-###-tns-completion-end-###
-
- # Load NVM
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-###-tns-completion-start-###
-if [ -f /Users/b044554/.tnsrc ]; then 
-    source /Users/b044554/.tnsrc 
-fi
-###-tns-completion-end-###
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/b044554/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/b044554/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/b044554/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/b044554/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ -f '/usr/local/share/zsh/site-functions' ]; then . '/usr/local/share/zsh/site-functions'; fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
+
+# ZFZ fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

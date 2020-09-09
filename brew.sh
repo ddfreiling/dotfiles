@@ -98,6 +98,9 @@ brew install git-flow
 brew install tldr
 brew install swiftlint
 brew install libressl
+brew install zfz
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
 brew cask install provisionql
 # Requirements for Appium
 brew install carthage
