@@ -65,6 +65,7 @@ plugins=(
   docker
   encode64
   extract
+  fzf
   gradle
   gulp
   iterm2
@@ -73,6 +74,7 @@ plugins=(
   osx
   react-native
   ssh-agent
+  wd
   xcode
   yarn
   zsh-autosuggestions
@@ -144,3 +146,9 @@ if [ -f '/usr/local/share/zsh/site-functions' ]; then . '/usr/local/share/zsh/si
 
 # ZFZ fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+###-tns-completion-start-###
+if [ -f /Users/b044554/.tnsrc ]; then 
+    source /Users/b044554/.tnsrc 
+fi
+###-tns-completion-end-###
