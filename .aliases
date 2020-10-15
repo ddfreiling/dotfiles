@@ -16,6 +16,7 @@ alias g="git"
 alias gub="hub"
 alias doc="docker"
 alias docc="docker-compose"
+alias kub="kubectl"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping

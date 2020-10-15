@@ -885,6 +885,17 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 # Bypass the annoyingly slow t.co URL shortener
 # defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
+
+###############################################################################
+# Daniel Freiling's additions                                                 #
+###############################################################################
+
+# Slam down ctrl+cmd and you can click and drag a window from any location.
+defaults write -g NSWindowShouldDragOnGesture YES
+
+# Show date and time in the menu bar
+defaults write com.apple.menuextra.clock "DateFormat" "EEE MMM d H.mm"
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
