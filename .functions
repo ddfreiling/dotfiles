@@ -218,3 +218,16 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+function htmlvalid() {
+	DATA=$(curl -k $@) && html-validator --data=$DATA --verbose
+}
+
+# Nota stuff
+function ndrevblanket() {
+	open 'smb://prod.sitad.dk/dfs/CU2523/N-DREV/Diverse-Information/Personale/Blanketter'
+}
+
+function ndrevferie() {
+	open 'smb://prod.sitad.dk/dfs/CU2523/N-DREV/Udveksling/Ferieregnskab og omsorgsdage'
+}

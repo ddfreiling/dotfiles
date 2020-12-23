@@ -94,6 +94,7 @@ brew install zopfli
 
 # BEGIN Additions by DFG
 brew install telnet
+brew install gh
 brew install git-flow
 brew install tldr
 brew install swiftlint

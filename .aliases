@@ -16,7 +16,7 @@ alias g="git"
 alias gub="hub"
 alias doc="docker"
 alias docc="docker-compose"
-alias kub="kubectl"
+alias k="kubectl"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
@@ -165,7 +165,9 @@ alias path='echo -e ${PATH//:/\\n}'
 alias listening="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # Flutter shortcuts
+alias fl="flutter"
 alias fpb="flutter pub run build_runner"
+alias fpg="flutter pub get"
 
 # k3s cleanup
 # https://github.com/rancher/k3s/issues/1469
