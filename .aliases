@@ -13,10 +13,15 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias cdc="cd ~/code"
 alias g="git"
-alias gub="hub"
 alias doc="docker"
 alias docc="docker-compose"
 alias k="kubectl"
+alias kg="kubectl get"
+alias kdesc="kubectl describe pod "
+alias kpod="kubectl get pod"
+alias kpods="kubectl get pods --show-labels"
+alias kapp="kubectl apply -f "
+alias klog="kubectl logs -f"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping

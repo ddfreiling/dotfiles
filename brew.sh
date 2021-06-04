@@ -93,6 +93,7 @@ brew install vbindiff
 brew install zopfli
 
 # BEGIN Additions by DFG
+brew install nvm
 brew install telnet
 brew install gh
 brew install git-flow
@@ -108,6 +109,16 @@ brew install carthage
 brew install libimobiledevice
 brew install ideviceinstaller
 brew install ios-webkit-debug-proxy
+# Make GPG use keychain (https://stackoverflow.com/a/41506446)
+brew install pinentry-mac
+brew install gpg2
+echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+# Install Composer & PHP code formatting tool.
+brew install composer
+composer global require squizlabs/php_codesniffer
+composer global require drupal/coder
+phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+phpcs --config-set default_standard Drupal
 # END Additions by DFG
 
 # Remove outdated versions from the cellar.

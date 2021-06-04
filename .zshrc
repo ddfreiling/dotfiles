@@ -65,14 +65,13 @@ plugins=(
   docker
   encode64
   extract
+  flutter
   fzf
   gradle
   gulp
   iterm2
-  jira
   nmap
   osx
-  react-native
   ssh-agent
   wd
   xcode
@@ -84,7 +83,6 @@ export JIRA_URL=https://notalib.atlassian.net
 export JIRA_NAME=Daniel\ Freiling
 export JIRA_PREFIX=NOTA-
 export JIRA_DEFAULT_ACTION=dashboard
-
 
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
 
@@ -123,7 +121,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{exports,path,aliases,functions,extra,completion}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
@@ -135,20 +133,25 @@ unsetopt inc_append_history
 unsetopt share_history
 
 # Load NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Make sure these statements execute before sourcing bash completion.
+export NVM_DIR="${HOME}/.nvm"
+source $(brew --prefix nvm)/nvm.sh
 
 if [ -f '/usr/local/share/zsh/site-functions' ]; then . '/usr/local/share/zsh/site-functions'; fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
+# Install our tab completion.
+autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
+# Add tab completion for many Bash commands
+# if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+#   source "$(brew --prefix)/share/bash-completion/bash_completion";
+# fi
 
 # ZFZ fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###-tns-completion-start-###
 if [ -f /Users/b044554/.tnsrc ]; then 
-    source /Users/b044554/.tnsrc 
+  source /Users/b044554/.tnsrc 
 fi
 ###-tns-completion-end-###

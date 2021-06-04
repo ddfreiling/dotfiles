@@ -2,7 +2,9 @@
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="/usr/local/opt/libressl/bin:$PATH"
+PATH="/usr/local/opt/ruby/bin:$PATH"
 PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$PATH"
-PATH="$HOME/Library/flutter/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
+# Dart bins (flutter via fvm)
+PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH;
