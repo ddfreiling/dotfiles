@@ -223,6 +223,10 @@ function htmlvalid() {
 	DATA=$(curl -k $@) && html-validator --data=$DATA --verbose
 }
 
+function portuse() {
+	lsof -i -n -P | grep TCP
+}
+
 # Nota stuff
 function ndrevblanket() {
 	open 'smb://prod.sitad.dk/dfs/CU2523/N-DREV/Diverse-Information/Personale/Blanketter'
@@ -230,4 +234,8 @@ function ndrevblanket() {
 
 function ndrevferie() {
 	open 'smb://prod.sitad.dk/dfs/CU2523/N-DREV/Udveksling/Ferieregnskab og omsorgsdage'
+}
+
+function kubeshell() {
+	kubectl exec --stdin --tty $@ -- /bin/bash
 }

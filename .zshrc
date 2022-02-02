@@ -62,16 +62,20 @@ plugins=(
   git
   git-flow
   adb
+  brew
   docker
   encode64
   extract
-  flutter
   fzf
   gradle
   gulp
   iterm2
+  jira
+  kubectl
   nmap
-  osx
+  macos
+  react-native
+  sdk
   ssh-agent
   wd
   xcode
@@ -151,7 +155,11 @@ autoload -Uz bashcompinit && bashcompinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###-tns-completion-start-###
-if [ -f /Users/b044554/.tnsrc ]; then 
-  source /Users/b044554/.tnsrc 
+if [ -f /Users/b044554/.tnsrc ]; then
+  source /Users/b044554/.tnsrc
 fi
 ###-tns-completion-end-###
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/b044554/.sdkman"
+[[ -s "/Users/b044554/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/b044554/.sdkman/bin/sdkman-init.sh"

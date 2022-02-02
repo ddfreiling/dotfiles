@@ -14,14 +14,22 @@ alias dt="cd ~/Desktop"
 alias cdc="cd ~/code"
 alias g="git"
 alias doc="docker"
-alias docc="docker-compose"
+alias docrun="docker run --rm -it --entrypoint bash"
+alias docc="docker compose"
 alias k="kubectl"
 alias kg="kubectl get"
 alias kdesc="kubectl describe pod "
 alias kpod="kubectl get pod"
 alias kpods="kubectl get pods --show-labels"
+alias ksvc="kubectl get service"
+alias ksvcs="kubectl get services --show-labels"
+alias kdep="kubectl get deployment"
+alias kdeps="kubectl get deployments --show-labels"
 alias kapp="kubectl apply -f "
 alias klog="kubectl logs -f"
+alias konf="kubectl config"
+alias kontexts="kubectl config get-contexts"
+alias kontext="kubectl config use-context"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
@@ -101,7 +109,8 @@ jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources
 unset jscbin;
 
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+alias clip="tr -d '\n' | pbcopy"
+alias c=clip
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -170,9 +179,11 @@ alias path='echo -e ${PATH//:/\\n}'
 alias listening="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # Flutter shortcuts
+alias flutter="fvm flutter"
 alias fl="flutter"
-alias fpb="flutter pub run build_runner"
+alias fla="flutter analyze"
 alias fpg="flutter pub get"
+alias fpb="flutter pub run build_runner"
 
 # k3s cleanup
 # https://github.com/rancher/k3s/issues/1469
