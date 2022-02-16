@@ -68,19 +68,17 @@ plugins=(
   extract
   fzf
   gradle
-  gulp
   iterm2
   jira
   kubectl
   nmap
   macos
-  react-native
-  sdk
   ssh-agent
   wd
   xcode
   yarn
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 export JIRA_URL=https://notalib.atlassian.net
@@ -88,7 +86,9 @@ export JIRA_NAME=Daniel\ Freiling
 export JIRA_PREFIX=NOTA-
 export JIRA_DEFAULT_ACTION=dashboard
 
-export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737373"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,6 +151,9 @@ autoload -Uz bashcompinit && bashcompinit
 #   source "$(brew --prefix)/share/bash-completion/bash_completion";
 # fi
 
+# Autocompletetion for kubectl alias k
+compdef __start_kubectl k
+
 # ZFZ fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -159,6 +162,8 @@ if [ -f /Users/b044554/.tnsrc ]; then
   source /Users/b044554/.tnsrc
 fi
 ###-tns-completion-end-###
+
+source <(helm completion zsh)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/b044554/.sdkman"

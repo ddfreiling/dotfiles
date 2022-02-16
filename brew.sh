@@ -95,20 +95,21 @@ brew install zopfli
 # BEGIN Additions by DFG
 brew install nvm
 brew install telnet
+brew install ntpq
 brew install gh
 brew install git-flow
 brew install tldr
 brew install swiftlint
 brew install libressl
 brew install zfz
+brew install derailed/k9s/k9s
+brew install kompose
+brew install gcloud
+brew install dotnet
+brew install dart
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
 brew cask install provisionql
-# Requirements for Appium
-brew install carthage
-brew install libimobiledevice
-brew install ideviceinstaller
-brew install ios-webkit-debug-proxy
 # Make GPG use keychain (https://stackoverflow.com/a/41506446)
 brew install pinentry-mac
 brew install gpg2

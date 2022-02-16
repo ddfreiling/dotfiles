@@ -16,8 +16,9 @@ alias g="git"
 alias doc="docker"
 alias docrun="docker run --rm -it --entrypoint bash"
 alias docc="docker compose"
+# Alias kubectl to k with autocompletion
 alias k="kubectl"
-alias kg="kubectl get"
+alias ket="kubectl get"
 alias kdesc="kubectl describe pod "
 alias kpod="kubectl get pod"
 alias kpods="kubectl get pods --show-labels"
@@ -30,6 +31,8 @@ alias klog="kubectl logs -f"
 alias konf="kubectl config"
 alias kontexts="kubectl config get-contexts"
 alias kontext="kubectl config use-context"
+alias kroll="kubectl rollout"
+alias krestart="kubectl rollout restart"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
@@ -188,3 +191,4 @@ alias fpb="flutter pub run build_runner"
 # k3s cleanup
 # https://github.com/rancher/k3s/issues/1469
 alias k3s-cleanup="docker stop $(docker ps -a -q --filter 'name=k8s_') | xargs docker rm"
+alias k3d-create="k3d cluster create --api-port 6550 -p \"8081:80@loadbalancer\" --volume \"/usr/local/k3d-storage:/var/lib/rancher/k3s/storage\" --agents 2"
