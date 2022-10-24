@@ -4,10 +4,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
+# Uncomment to profile startup time
+#zmodload zsh/zprof
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -27,7 +31,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -39,7 +43,7 @@ ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -61,21 +65,16 @@ HIST_STAMPS="dd-mm-yy"
 plugins=(
   git
   git-flow
-  adb
-  brew
-  docker
   encode64
   extract
   fzf
-  gradle
   iterm2
   jira
-  kubectl
   nmap
   macos
+  ripgrep
   ssh-agent
   wd
-  xcode
   yarn
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -153,18 +152,19 @@ autoload -Uz bashcompinit && bashcompinit
 
 # Autocompletetion for kubectl alias k
 compdef __start_kubectl k
+source <(helm completion zsh)
 
 # ZFZ fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-###-tns-completion-start-###
-if [ -f /Users/b044554/.tnsrc ]; then
-  source /Users/b044554/.tnsrc
-fi
-###-tns-completion-end-###
-
-source <(helm completion zsh)
+export dotnet=/usr/local/share/dotnet/dotnet
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/b044554/.sdkman"
 [[ -s "/Users/b044554/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/b044554/.sdkman/bin/sdkman-init.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Uncomment to profile startup time
+#zprof

@@ -29,10 +29,15 @@ export LESS_TERMCAP_md="${yellow}";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less';
 
-# LibreSSL
-export LDFLAGS="-L/usr/local/opt/libressl/lib"
-export CPPFLAGS="-I/usr/local/opt/libressl/include"
-export PKG_CONFIG_PATH="/usr/local/opt/libressl/lib/pkgconfig"
+# OpenSSL
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# LibreSSL (OpenSSL used for dotnet atm.)
+# export LDFLAGS="-L/usr/local/opt/libressl/lib"
+# export CPPFLAGS="-I/usr/local/opt/libressl/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/libressl/lib/pkgconfig"
 
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
@@ -43,9 +48,9 @@ export ANDROID_HOME="$HOME/sdk/android";
 export NVM_DIR="$HOME/.nvm";
 
 # For compilers to find ruby you may need to set:
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/ruby/lib"
+export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # Fix omnisharp not being able to find Dotnet SDK
 export MSBuildSDKsPath="/usr/local/share/dotnet/sdk/$(dotnet --version)/Sdks"

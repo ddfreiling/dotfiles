@@ -236,6 +236,105 @@ function ndrevferie() {
 	open 'smb://prod.sitad.dk/dfs/CU2523/N-DREV/Udveksling/Ferieregnskab og omsorgsdage'
 }
 
-function kubeshell() {
+function shutdownreason() {
+	echo "grep -iv ': starting\|kernel: .*: Power Button\|watching system buttons\|Stopped Cleaning Up\|Started Crash recovery kernel' \
+   /var/log/messages /var/log/syslog /var/log/apcupsd* \
+   | grep -iw 'recover[a-z]*\|power[a-z]*\|shut[a-z ]*down\|rsyslogd\|ups'"
+}
+
+function kexec() {
 	kubectl exec --stdin --tty $@ -- /bin/bash
+}
+
+function kns() {
+	kubectl config set-context --current --namespace=$1
+}
+
+function kfixrancherlogs() {
+	eval "$(kubectl get preferences.management.cattle.io -A --field-selector metadata.name=logs-range -o jsonpath='{range .items[*]}{"kubectl -n "}{.metadata.namespace}{" delete preferences.management.cattle.io logs-range;"}{end}')"
+}
+
+function kron-suspend() {
+	all_args=("$@")
+	rest_args=("${all_args[@]:2}")
+	kubectl patch cronjobs $1 -p "{\"spec\" : {\"suspend\" : $2 }}" $rest_args
+}
+
+function krun() {
+	if [ "$#" -eq 0 ]; then
+    echo "How to use: krun <Image> (..args)"
+		return
+	fi
+	all_args=("$@")
+	rest_args=("${all_args[@]:1}")
+	kubectl run -i -t krun-tmp --restart=Never --rm --image=$1 $rest_args
+}
+
+function kdeploy() {
+	if [ "$#" -eq 0 ]; then
+    echo "How-to: kdeploy <Image> (..args)"
+		return
+	fi
+	template=""
+	image=$1
+	name="${2:-$image}"
+	namespace="${3:-default}"
+	set +a
+  yaml=$(eval "cat <<EOF
+$(<~"/.k8s-templates/deployment.yaml")
+  ")
+	echo $yaml | kubectl apply -f -
+}
+
+function kpvreclaim() {
+	if [ "$#" -eq 0 ]; then
+    echo "How-to: kpvreclaim <PVName> <ReclaimPolicy> (...args)"
+		return
+	fi
+	all_args=("$@")
+	rest_args=("${all_args[@]:2}")
+	kubectl patch $1 -p "{\"spec\":{\"persistentVolumeReclaimPolicy\":\"$2\"}}" $rest_args
+}
+
+function kscale() {
+	if [ "$#" -eq 0 ]; then
+    echo "How-to: kscale <DeploymentName> <#-of-Replicas> (...args)"
+		return
+	fi
+	all_args=("$@")
+	rest_args=("${all_args[@]:2}")
+	kubectl scale deployment $1 --replicas=$2 $rest_args
+}
+
+function kpvnuke() {
+	if [ "$#" -eq 0 ]; then
+    echo "How to use: kpvnuke <PVName>"
+		return
+	fi
+	all_args=("$@")
+	rest_args=("${all_args[@]:1}")
+	kpvunclaim pv/$1
+	kubectl patch -p "{\"metadata\":{\"finalizers\":null}}" pv/$1
+	kubectl delete pv/$1
+}
+
+function kreflect() {
+	if [ "$#" -eq 0 ]; then
+    echo "How to use: kreflect <ResourceName> <true/false> (...args)"
+		return
+	fi
+	all_args=("$@")
+	rest_args=("${all_args[@]:2}")
+	kubectl annotate --overwrite $1 reflector.v1.k8s.emberstack.com/reflection-allowed=$2 $rest_args
+	kubectl annotate --overwrite $1 reflector.v1.k8s.emberstack.com/reflection-auto-enabled=$2 $rest_args
+}
+
+function longhorn-nuke() {
+	NAMESPACE=$1
+	# Delete CRD finalizers, instances and definitions
+	for crd in $(kubectl get crd -o jsonpath={.items[*].metadata.name} | tr ' ' '\n' | grep longhorn.rancher.io); do
+		kubectl -n ${NAMESPACE} get $crd -o yaml | sed "s/\- longhorn.rancher.io//g" | kubectl apply -f -
+		kubectl -n ${NAMESPACE} delete $crd --all
+		kubectl delete crd/$crd
+	done
 }
