@@ -1,10 +1,34 @@
 # Add relevant exports to the PATH
+
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 PATH="$HOME/bin:$PATH"
-PATH="/usr/local/opt/libressl/bin:$PATH"
+
+# OpenSSL, findable by dotnet
+PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+# PATH="/usr/local/opt/libressl/bin:$PATH"
+
+# OpenJDK from brew
+PATH="/usr/local/opt/openjdk/bin:$PATH"
 PATH="/usr/local/opt/ruby/bin:$PATH"
 PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
+# Path to gem executables
+PATH="/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
+# Flutter
+PATH="$PATH:$HOME/fvm/default/bin"
 # Dart bins (flutter via fvm)
-PATH="$HOME/.pub-cache/bin:$PATH"
+PATH="$PATH:$HOME/.pub-cache/bin"
+# Add .NET Core SDK tools
+PATH="$PATH:$HOME/.dotnet/tools"
+# Add pyenv shims
+PATH="$(pyenv root)/shims:$PATH"
+
+# Brew installed google_cloud_sdk components on PATH
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+
+# export it
 export PATH;
+
+# JavaFX
+export PATH_TO_FX="$HOME/sdk/javafx/lib"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"

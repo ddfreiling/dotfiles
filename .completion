@@ -1,2 +1,11 @@
+# Please we aware that completions can be installed (and slow down terminal) at the following locations:
+# /usr/local/etc/bash_completion.d/
+# /usr/local/share/bash-completion/completions/
+
+# Terraform auto-completion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# NVM auto-completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

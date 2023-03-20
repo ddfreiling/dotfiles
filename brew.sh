@@ -99,6 +99,7 @@ brew install ntpq
 brew install gh
 brew install git-flow
 brew install tldr
+brew install mysql-client
 brew install swiftlint
 brew install libressl
 brew install zfz

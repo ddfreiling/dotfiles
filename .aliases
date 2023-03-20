@@ -15,7 +15,8 @@ alias cdc="cd ~/code"
 alias g="git"
 alias ns="nslookup"
 alias doc="docker"
-alias docc="docker-compose"
+alias docc="docker compose"
+alias doccupd="docker compose up -d --no-deps --force-recreate"
 alias drun="docker run --rm -it"
 # Alias kubectl to k with autocompletion
 alias k="kubectl"
@@ -191,6 +192,11 @@ alias fl="flutter"
 alias fla="flutter analyze"
 alias fpg="flutter pub get"
 alias fpb="flutter pub run build_runner"
+
+# Terraform shortcuts
+alias tf="terraform"
+alias tfa="terraform apply"
+alias tfp="terraform plan"
 
 # k3s cleanup
 # https://github.com/rancher/k3s/issues/1469
