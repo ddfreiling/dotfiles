@@ -26,7 +26,7 @@
     "Green Component" : 0.90000000000000002
   },
   "HotKey Window Floats" : true,
-  "Right Option Key Sends" : 0,
+  "Right Option Key Sends" : 1,
   "Character Encoding" : 4,
   "Selection Color" : {
     "Red Component" : 0.12883244222030044,

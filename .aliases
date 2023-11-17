@@ -13,11 +13,13 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias cdc="cd ~/code"
 alias g="git"
-alias ns="nslookup"
+alias dns="nslookup"
+alias py="python"
 alias doc="docker"
 alias docc="docker compose"
 alias doccupd="docker compose up -d --no-deps --force-recreate"
 alias drun="docker run --rm -it"
+alias checkignore="ncdu -X "
 # Alias kubectl to k with autocompletion
 alias k="kubectl"
 alias ket="k get"
@@ -187,7 +189,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias listening="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # Flutter shortcuts
-alias flutter="fvm flutter"
+#alias flutter="fvm flutter"
 alias fl="flutter"
 alias fla="flutter analyze"
 alias fpg="flutter pub get"
@@ -204,3 +206,54 @@ alias k3s-cleanup="docker stop $(docker ps -a -q --filter 'name=k8s_') | xargs d
 # k3d is a tool to quickly simulate local k3s clusters
 # DNS issues? See https://github.com/k3d-io/k3d/issues/209#issuecomment-992646566
 alias k3d-create="K3D_FIX_DNS=1 k3d cluster create demo --api-port 6550 -p 8080:80@loadbalancer -p 8443:443@loadbalancer --volume $HOME/k3d-storage:/var/lib/rancher/k3s/storage@all --agents 1"
+
+# Github Copilot-CLI
+copilot_what-the-shell () {
+  TMPFILE=$(mktemp);
+  trap 'rm -f $TMPFILE' EXIT;
+  if /Users/b044554/.nvm/versions/node/v18.15.0/bin/github-copilot-cli what-the-shell "$@" --shellout $TMPFILE; then
+    if [ -e "$TMPFILE" ]; then
+      FIXED_CMD=$(cat $TMPFILE);
+
+      eval "$FIXED_CMD"
+    else
+      echo "Apologies! Extracting command failed"
+    fi
+  else
+    return 1
+  fi
+};
+alias '??'='copilot_what-the-shell';
+copilot_git-assist () {
+  TMPFILE=$(mktemp);
+  trap 'rm -f $TMPFILE' EXIT;
+  if /Users/b044554/.nvm/versions/node/v18.15.0/bin/github-copilot-cli git-assist "$@" --shellout $TMPFILE; then
+    if [ -e "$TMPFILE" ]; then
+      FIXED_CMD=$(cat $TMPFILE);
+
+      eval "$FIXED_CMD"
+    else
+      echo "Apologies! Extracting command failed"
+    fi
+  else
+    return 1
+  fi
+};
+alias 'git?'='copilot_git-assist';
+copilot_gh-assist () {
+  TMPFILE=$(mktemp);
+  trap 'rm -f $TMPFILE' EXIT;
+  if /Users/b044554/.nvm/versions/node/v18.15.0/bin/github-copilot-cli gh-assist "$@" --shellout $TMPFILE; then
+    if [ -e "$TMPFILE" ]; then
+      FIXED_CMD=$(cat $TMPFILE);
+
+      eval "$FIXED_CMD"
+    else
+      echo "Apologies! Extracting command failed"
+    fi
+  else
+    return 1
+  fi
+};
+alias 'gh?'='copilot_gh-assist';
+alias 'wts'='copilot_what-the-shell';

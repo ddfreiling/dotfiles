@@ -160,8 +160,8 @@ source <(helm completion zsh)
 export dotnet=/usr/local/share/dotnet/dotnet
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/b044554/.sdkman"
-[[ -s "/Users/b044554/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/b044554/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="/Users/b044554/.sdkman"
+# [[ -s "/Users/b044554/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/b044554/.sdkman/bin/sdkman-init.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

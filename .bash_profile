@@ -37,7 +37,7 @@ fi;
 # }
 # for al in `__git_aliases`; do
 #     alias g$al="git $al"
-    
+
 #     complete_func=_git_$(__git_aliased_command $al)
 #     function_exists $complete_fnc && __git_complete g$al $complete_func
 # done
@@ -56,3 +56,5 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+complete -C /usr/local/bin/terraform terraform

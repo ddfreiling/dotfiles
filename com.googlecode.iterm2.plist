@@ -791,6 +791,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x20-0x80000-0x31</key>
+		<dict>
+			<key>Action</key>
+			<integer>12</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string> </string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0x66-0x140000</key>
 		<dict>
 			<key>Action</key>
@@ -3552,6 +3563,8 @@
 	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>

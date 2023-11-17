@@ -14,21 +14,29 @@ PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 # Path to gem executables
 PATH="/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
+
 # Flutter
-PATH="$PATH:$HOME/fvm/default/bin"
+PATH="$HOME/sdk/flutter/bin:$PATH"
+FLUTTER_ROOT="$HOME/sdk/flutter"
 # Dart bins (flutter via fvm)
-PATH="$PATH:$HOME/.pub-cache/bin"
+#PATH="$PATH:$HOME/.pub-cache/bin"
+
 # Add .NET Core SDK tools
 PATH="$PATH:$HOME/.dotnet/tools"
 # Add pyenv shims
 PATH="$(pyenv root)/shims:$PATH"
 
+# Set JAVA_HOME
+PATH="$JAVA_HOME/bin:$PATH"
+
 # Brew installed google_cloud_sdk components on PATH
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
+# JavaFX
+PATH_TO_FX="$HOME/sdk/javafx/lib"
+PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
 # export it
 export PATH;
-
-# JavaFX
-export PATH_TO_FX="$HOME/sdk/javafx/lib"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH_TO_FX;
+export FLUTTER_ROOT;

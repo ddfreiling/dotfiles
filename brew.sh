@@ -18,6 +18,8 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
+# Install GNU `tar`, overwriting the built-in `tar`.
+brew install gnu-tar
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
@@ -95,7 +97,9 @@ brew install zopfli
 # BEGIN Additions by DFG
 brew install nvm
 brew install telnet
+brew install doggo
 brew install ntpq
+brew install ncdu
 brew install gh
 brew install git-flow
 brew install tldr
