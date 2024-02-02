@@ -168,3 +168,7 @@ export dotnet=/usr/local/share/dotnet/dotnet
 
 # Uncomment to profile startup time
 #zprof
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/b044554/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

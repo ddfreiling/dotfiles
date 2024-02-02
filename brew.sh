@@ -112,6 +112,9 @@ brew install kompose
 brew install gcloud
 brew install dotnet
 brew install dart
+brew install gitversion
+brew install ansible
+brew install hudochenkov/sshpass/sshpass
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
 brew cask install provisionql
