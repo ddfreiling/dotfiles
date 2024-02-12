@@ -113,6 +113,9 @@ brew install gcloud
 brew install dotnet
 brew install dart
 brew install gitversion
+brew install kubernetes-cli
+brew install helm
+brew install terraform
 brew install ansible
 brew install hudochenkov/sshpass/sshpass
 # To install useful key bindings and fuzzy completion:
