@@ -106,7 +106,7 @@ brew install tldr
 brew install mysql-client
 brew install swiftlint
 brew install libressl
-brew install zfz
+brew install fzf
 brew install derailed/k9s/k9s
 brew install kompose
 brew install gcloud
