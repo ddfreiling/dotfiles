@@ -8,6 +8,9 @@ function doIt() {
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
+		--exclude "cfg/" \
+		--exclude "init/" \
+		--exclude "scripts/" \
 		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
@@ -25,3 +28,16 @@ else
 	fi;
 fi;
 unset doIt;
+
+# Make symbolic links for files we change often
+SRC_DIR=$(dirname "${BASH_SOURCE}")
+
+cd ~
+ln -sf $SRC_DIR/.bashrc .bashrc
+ln -sf $SRC_DIR/.zshrc .zshrc
+ln -sf $SRC_DIR/.wgetrc .wgetrc
+ln -sf $SRC_DIR/.exports .exports
+ln -sf $SRC_DIR/.aliases .aliases
+ln -sf $SRC_DIR/.functions .functions
+ln -sf $SRC_DIR/.extra .extra
+ln -sf $SRC_DIR/.path .path
