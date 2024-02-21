@@ -95,6 +95,7 @@ brew install vbindiff
 brew install zopfli
 
 # BEGIN Additions by DFG
+brew install ruby
 brew install nvm
 brew install telnet
 brew install doggo
@@ -105,22 +106,33 @@ brew install git-flow
 brew install tldr
 brew install mysql-client
 brew install swiftlint
+brew cask install provisionql
 brew install libressl
 brew install fzf
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
+brew tap leoafarias/fvm
+brew install fvm
 brew install derailed/k9s/k9s
 brew install kompose
-brew install gcloud
 brew install dotnet
-brew install dart
+brew install rust
 brew install gitversion
 brew install kubernetes-cli
 brew install helm
-brew install terraform
-brew install ansible
 brew install hudochenkov/sshpass/sshpass
-# To install useful key bindings and fuzzy completion:
-$(brew --prefix)/opt/fzf/install
-brew cask install provisionql
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+# Setup python using pyevn see https://opensource.com/article/19/5/python-3-default-mac
+# TODO: use conda instead?
+brew install pyenv
+pyenv install 3.10
+pyenv global 3.10
+pip install ansible
+pip install ansible-lint
+# Override default music app
+brew install --cask notunes
+defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
 # Make GPG use keychain (https://stackoverflow.com/a/41506446)
 brew install pinentry-mac
 brew install gpg2

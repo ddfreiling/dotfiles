@@ -12,6 +12,7 @@ export ZSH=${HOME}/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+#POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -170,5 +171,5 @@ export dotnet=/usr/local/share/dotnet/dotnet
 #zprof
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/b044554/.rd/bin:$PATH"
+export PATH="/Users/B044554/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
+SRC_PATH=$(realpath "${BASH_SOURCE}")
+SRC_DIR=$(dirname "${BASH_SOURCE}")
+
+cd "$SRC_DIR";
 
 git pull origin master;
 
@@ -30,9 +33,9 @@ fi;
 unset doIt;
 
 # Make symbolic links for files we change often
-SRC_DIR=$(dirname "${BASH_SOURCE}")
 
 cd ~
+echo $SRC_DIR/.bashrc
 ln -sf $SRC_DIR/.bashrc .bashrc
 ln -sf $SRC_DIR/.zshrc .zshrc
 ln -sf $SRC_DIR/.wgetrc .wgetrc
