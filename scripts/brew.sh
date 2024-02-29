@@ -95,6 +95,7 @@ brew install vbindiff
 brew install zopfli
 
 # BEGIN Additions by DFG
+brew install yq
 brew install ruby
 brew install nvm
 brew install telnet
@@ -120,6 +121,7 @@ brew install rust
 brew install gitversion
 brew install kubernetes-cli
 brew install helm
+brew install fluxcd/tap/flux
 brew install hudochenkov/sshpass/sshpass
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
