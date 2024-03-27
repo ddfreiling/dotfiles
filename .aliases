@@ -21,7 +21,7 @@ alias doccupd="docker compose up -d --no-deps --force-recreate"
 alias doccps="docker compose ps --format \"table {{printf '%.12s' .ID}}\t{{.Name}}\t{{.Service}}\t{{.State}}\t{{.Status}}\""
 alias drun="docker run --rm -it"
 alias checkignore="ncdu -X "
-alias dirsizes="du -sh ./* | sort -hr"
+alias dir="du -sh ./* | sort -hr"
 # Alias kubectl to k with autocompletion
 alias k="kubectl"
 alias ket="k get"
