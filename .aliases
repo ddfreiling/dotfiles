@@ -25,6 +25,7 @@ alias dir="du -sh ./* | sort -hr"
 # Alias kubectl to k with autocompletion
 alias k="kubectl"
 alias ket="k get"
+alias kedit="k edit"
 alias kp="k patch"
 alias kdesc="k describe pod"
 alias kapp="k apply -f "
@@ -41,7 +42,8 @@ alias kontext="k config use-context"
 alias ktx="kontext"
 alias kroll="k rollout"
 alias kpvunclaim="k patch -p '{\"spec\":{\"claimRef\": null}}'"
-alias kres="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n"
+alias ktop="k top node"
+alias ktopp="k top pods -A --sort-by=cpu | less"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping

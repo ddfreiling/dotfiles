@@ -151,9 +151,11 @@ autoload -Uz bashcompinit && bashcompinit
 #   source "$(brew --prefix)/share/bash-completion/bash_completion";
 # fi
 
-# Autocompletetion for kubectl alias k
-compdef __start_kubectl k
-source <(helm completion zsh)
+# Load auto-completion scripts for other CLI tools
+source ~/.completion
+# NOTE: apparently not needed for aliases to autocomplete
+# compdef __start_kubectl k
+# compdef __start_docc "docker compose"
 
 # ZFZ fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

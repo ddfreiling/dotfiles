@@ -250,6 +250,14 @@ function kexec() {
   kubectl exec --stdin --tty $@ -- /bin/bash
 }
 
+function kres() {
+  if [ "$#" -eq 0 ]; then
+    echo "How to use: kres <Namespace> [...args]"
+    return
+  fi
+  alias kres="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n"
+}
+
 function kns() {
   echo "Set kubectl context default namespace: ${1:-[none]}"
   kubectl config set-context --current --namespace=$1
@@ -267,7 +275,7 @@ function kron-suspend() {
 
 function krun() {
   if [ "$#" -eq 0 ]; then
-    echo "How to use: krun <Image> (..args)"
+    echo "How to use: krun <Image> [...args]"
     return
   fi
   all_args=("$@")
@@ -374,12 +382,23 @@ function hun {
     command helm uninstall "$@"
   fi
 }
+
+function kdebug {
+  if [ "$#" -eq 0 ]; then
+    echo "How to use: kdebug <PodName> <Image> <Container>"
+    echo "Suggested images:"
+    echo "\tbusybox:alpine"
+    echo "\tlightruncom/koolkits"
+    echo "\twbitt/network-multitool"
+    echo "\tnicolaka/netshoot"
+    return
+  fi
+  debugImage="${2:-busybox}"
+  kubectl debug -it $1 --image=$debugImage --image-pull-policy=IfNotPresent --target=$3
+}
+
 function docco {
   OVERRIDE="${@:1:1}"
   OVERRIDE_FILE=docker-compose.$OVERRIDE.yml
   docker compose -f docker-compose.yml -f $OVERRIDE_FILE "${@:2}"
-}
-
-function k8sdebug {
-  echo "wbitt/network-multitool"
 }
