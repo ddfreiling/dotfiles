@@ -118,9 +118,11 @@ brew install derailed/k9s/k9s
 brew install kompose
 brew install dotnet
 brew install rust
+brew install bundletool
 brew install gitversion
 brew install kubernetes-cli
 brew install helm
+brew install krew
 brew install fluxcd/tap/flux
 brew install hudochenkov/sshpass/sshpass
 brew tap hashicorp/tap

@@ -9,8 +9,8 @@ PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # PATH="/usr/local/opt/libressl/bin:$PATH"
 
 # OpenJDK from brew
-PATH="/usr/local/opt/openjdk/bin:$PATH"
-PATH="/usr/local/opt/ruby/bin:$PATH"
+PATH="$(brew --prefix openjdk)/bin:$PATH"
+PATH="$(brew --prefix ruby)/bin:$PATH"
 
 # Android SDK paths
 # Modified according to https://stackoverflow.com/a/71901000/382830
@@ -56,6 +56,11 @@ PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # Add Rancher Desktop tools to path
 PATH="$PATH:$HOME/.rd/bin"
+
+# Add GOPATH to PATH
+PATH="$PATH:$GOPATH/bin"
+
+PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
 # export it
 export PATH;

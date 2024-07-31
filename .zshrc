@@ -175,3 +175,9 @@ export dotnet=/usr/local/share/dotnet/dotnet
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/B044554/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/B044554/.dart-cli-completion/zsh-config.zsh ]] && . /Users/B044554/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

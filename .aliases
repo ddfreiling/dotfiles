@@ -12,6 +12,7 @@ alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias cdc="cd ~/code"
+alias cdcn="cd ~/code/nota"
 alias g="git"
 alias dns="nslookup"
 alias py="python"
@@ -44,6 +45,9 @@ alias kroll="k rollout"
 alias kpvunclaim="k patch -p '{\"spec\":{\"claimRef\": null}}'"
 alias ktop="k top node"
 alias ktopp="k top pods -A --sort-by=cpu | less"
+alias ktoppm="k top pods -A --sort-by=memory | less"
+alias kvaultlogs="k logs -f --tail 200 deployment/vault-secrets-operator-controller-manager -n vault-secrets-operator"
+alias kvaultrole="k edit ClusterRoleBinding/vault-auth-delegator"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
