@@ -23,7 +23,9 @@ alias doccps="docker compose ps --format \"table {{printf '%.12s' .ID}}\t{{.Name
 alias drun="docker run --rm -it"
 alias checkignore="ncdu -X "
 alias dir="du -sh ./* | sort -hr"
-# Alias kubectl to k with autocompletion
+alias getcerts="openssl s_client -showcerts -connect"
+
+# Kubectl aliases
 alias k="kubectl"
 alias ket="k get"
 alias kedit="k edit"
@@ -44,10 +46,12 @@ alias ktx="kontext"
 alias kroll="k rollout"
 alias kpvunclaim="k patch -p '{\"spec\":{\"claimRef\": null}}'"
 alias ktop="k top node"
+alias ktopn="ktop"
 alias ktopp="k top pods -A --sort-by=cpu | less"
 alias ktoppm="k top pods -A --sort-by=memory | less"
 alias kvaultlogs="k logs -f --tail 200 deployment/vault-secrets-operator-controller-manager -n vault-secrets-operator"
 alias kvaultrole="k edit ClusterRoleBinding/vault-auth-delegator"
+alias kfor="k port-forward"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
@@ -201,7 +205,7 @@ alias listening="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 alias fl="flutter"
 alias fla="flutter analyze"
 alias fpg="flutter pub get"
-alias fpb="flutter pub run build_runner"
+alias fpb="dart run build_runner"
 
 # Terraform shortcuts
 alias tf="terraform"

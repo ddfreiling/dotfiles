@@ -73,7 +73,6 @@ plugins=(
   jira
   nmap
   macos
-  ripgrep
   ssh-agent
   wd
   yarn
@@ -180,4 +179,8 @@ export PATH="/Users/B044554/.rd/bin:$PATH"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/B044554/.dart-cli-completion/zsh-config.zsh ]] && . /Users/B044554/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/B044554/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

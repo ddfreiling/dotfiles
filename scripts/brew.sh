@@ -102,6 +102,7 @@ brew install telnet
 brew install doggo
 brew install ntpq
 brew install ncdu
+brew install lnav
 brew install gh
 brew install git-flow
 brew install tldr
@@ -116,13 +117,18 @@ brew tap leoafarias/fvm
 brew install fvm
 brew install derailed/k9s/k9s
 brew install kompose
-brew install dotnet
+# using this tap, we can install multiple dotnet SDK versions.
+brew tap isen-ng/dotnet-sdk-versions
+brew install --cask dotnet-sdk8
+brew install --cask dotnet-sdk9
 brew install rust
 brew install bundletool
 brew install gitversion
 brew install kubernetes-cli
-brew install helm
+brew install kubent # kube-no-trouble - checks if your kubernetes cluster can be upgraded safely.
 brew install krew
+brew install helm
+brew install argocd
 brew install fluxcd/tap/flux
 brew install hudochenkov/sshpass/sshpass
 brew tap hashicorp/tap
@@ -147,6 +153,10 @@ composer global require squizlabs/php_codesniffer
 composer global require drupal/coder
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 phpcs --config-set default_standard Drupal
+# Speedtest CLI
+brew tap teamookla/speedtest
+brew update
+brew install speedtest --force
 # END Additions by DFG
 
 # Remove outdated versions from the cellar.

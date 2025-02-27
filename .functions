@@ -136,11 +136,12 @@ function getcertnames() {
   fi
 
   local domain="${1}"
+  local port="${2:-443}"
   echo "Testing ${domain}…"
   echo "" # newline
 
   local tmp=$(echo -e "GET / HTTP/1.0\nEOT" |
-    openssl s_client -connect "${domain}:443" -servername "${domain}" 2>&1)
+    openssl s_client -connect "${domain}:${port}" -servername "${domain}" 2>&1)
 
   if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
     local certText=$(echo "${tmp}" |
@@ -172,8 +173,9 @@ function getcertexpiry() {
   else
     local serveraddr="${2}"
   fi
+  local port="${3:-443}"
   echo "Checking cert expiry for $domain at address $serveraddr..."
-  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:443 2>/dev/null | openssl x509 -inform pem -noout -enddate -in /dev/stdin)"
+  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:{$port} 2>/dev/null | openssl x509 -inform pem -noout -enddate -in /dev/stdin)"
   echo "$result"
   return 0
 }
@@ -401,4 +403,16 @@ function docco {
   OVERRIDE="${@:1:1}"
   OVERRIDE_FILE=docker-compose.$OVERRIDE.yml
   docker compose -f docker-compose.yml -f $OVERRIDE_FILE "${@:2}"
+}
+
+function dockerinsp {
+  INSPECT_FORMAT=$(curl -s https://gist.githubusercontent.com/ddfreiling/08508b74d50d9078033e2552642ae74c/raw/206a206236d6674c6c94e117ed082c53e6aaf552/docker-inspect-format.txt)
+  docker inspect --format "$INSPECT_FORMAT" $@
+}
+
+function whiledo {
+  while true; do
+    $@
+    sleep 1
+  done
 }
