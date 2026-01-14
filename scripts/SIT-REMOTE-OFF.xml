@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnyConnectProfile xmlns="http://schemas.xmlsoap.org/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/encoding/ AnyConnectProfile.xsd">
+	<ClientInitialization>
+		<UseStartBeforeLogon UserControllable="false">true</UseStartBeforeLogon>
+		<AutomaticCertSelection UserControllable="false">true</AutomaticCertSelection>
+		<ShowPreConnectMessage>false</ShowPreConnectMessage>
+		<CertificateStore>Machine</CertificateStore>
+		<CertificateStoreMac>All</CertificateStoreMac>
+		<CertificateStoreOverride>true</CertificateStoreOverride>
+		<ProxySettings>Native</ProxySettings>
+		<AllowLocalProxyConnections>true</AllowLocalProxyConnections>
+		<AuthenticationTimeout>12</AuthenticationTimeout>
+		<AutoConnectOnStart UserControllable="false">true</AutoConnectOnStart>
+		<MinimizeOnConnect UserControllable="false">true</MinimizeOnConnect>
+		<LocalLanAccess UserControllable="false">true</LocalLanAccess>
+		<DisableCaptivePortalDetection UserControllable="false">false</DisableCaptivePortalDetection>
+		<ClearSmartcardPin UserControllable="false">true</ClearSmartcardPin>
+		<IPProtocolSupport>IPv4,IPv6</IPProtocolSupport>
+		<AutoReconnect UserControllable="false">true
+			<AutoReconnectBehavior UserControllable="false">DisconnectOnSuspend</AutoReconnectBehavior>
+		</AutoReconnect>
+		<SuspendOnConnectedStandby>false</SuspendOnConnectedStandby>
+		<AutoUpdate UserControllable="false">false</AutoUpdate>
+		<RSASecurIDIntegration UserControllable="false">Automatic</RSASecurIDIntegration>
+		<WindowsLogonEnforcement>SingleLocalLogon</WindowsLogonEnforcement>
+		<LinuxLogonEnforcement>SingleLocalLogon</LinuxLogonEnforcement>
+		<WindowsVPNEstablishment>LocalUsersOnly</WindowsVPNEstablishment>
+		<LinuxVPNEstablishment>LocalUsersOnly</LinuxVPNEstablishment>
+		<AutomaticVPNPolicy>false
+			<TrustedDNSDomains>prod.sitad.dk</TrustedDNSDomains>
+			<TrustedNetworkPolicy>Disconnect</TrustedNetworkPolicy>
+			<UntrustedNetworkPolicy>Connect</UntrustedNetworkPolicy>
+			<AlwaysOn>false
+				<ConnectFailurePolicy>Closed
+					<AllowCaptivePortalRemediation>true
+						<CaptivePortalRemediationTimeout>10</CaptivePortalRemediationTimeout>
+					</AllowCaptivePortalRemediation>
+					<ApplyLastVPNLocalResourceRules>false</ApplyLastVPNLocalResourceRules>
+				</ConnectFailurePolicy>
+				<AllowVPNDisconnect>true</AllowVPNDisconnect>
+			</AlwaysOn>
+		</AutomaticVPNPolicy>
+		<PPPExclusion UserControllable="false">Disable
+			<PPPExclusionServerIP UserControllable="false"></PPPExclusionServerIP>
+		</PPPExclusion>
+		<EnableScripting UserControllable="false">false</EnableScripting>
+		<EnableAutomaticServerSelection UserControllable="false">false
+			<AutoServerSelectionImprovement>20</AutoServerSelectionImprovement>
+			<AutoServerSelectionSuspendTime>4</AutoServerSelectionSuspendTime>
+		</EnableAutomaticServerSelection>
+		<RetainVpnOnLogoff>false
+		</RetainVpnOnLogoff>
+		<CaptivePortalRemediationBrowserFailover>false</CaptivePortalRemediationBrowserFailover>
+		<AllowManualHostInput>true</AllowManualHostInput>
+	</ClientInitialization>
+	<ServerList>
+		<HostEntry>
+			<HostName>STATENS IT - ALWAYS ON</HostName>
+			<HostAddress>always-on.statens-it.dk</HostAddress>
+			<LoadBalancingServerList>
+				<HostAddress>always-on1.statens-it.dk</HostAddress>
+				<HostAddress>always-on2.statens-it.dk</HostAddress>
+				<HostAddress>always-on3.statens-it.dk</HostAddress>
+				<HostAddress>always-on4.statens-it.dk</HostAddress>
+				<HostAddress>always-on5.statens-it.dk</HostAddress>
+				<HostAddress>always-on6.statens-it.dk</HostAddress>
+				<HostAddress>always-on7.statens-it.dk</HostAddress>
+				<HostAddress>always-on8.statens-it.dk</HostAddress>
+				<HostAddress>always-on9.statens-it.dk</HostAddress>
+				<HostAddress>always-on10.statens-it.dk</HostAddress>
+				<HostAddress>always-on11.statens-it.dk</HostAddress>
+			</LoadBalancingServerList>
+		</HostEntry>
+	</ServerList>
+</AnyConnectProfile>

@@ -128,11 +128,15 @@ brew install kubernetes-cli
 brew install kubent # kube-no-trouble - checks if your kubernetes cluster can be upgraded safely.
 brew install krew
 brew install helm
+brew install ctop
+brew install kind
+brew install clusterctl
 brew install argocd
 brew install fluxcd/tap/flux
 brew install hudochenkov/sshpass/sshpass
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
+brew install cmctl
 # Setup python using pyevn see https://opensource.com/article/19/5/python-3-default-mac
 # TODO: use conda instead?
 brew install pyenv
@@ -157,6 +161,12 @@ phpcs --config-set default_standard Drupal
 brew tap teamookla/speedtest
 brew update
 brew install speedtest --force
+# Atlassian CLI
+brew tap atlassian/homebrew-acli
+brew install acli
+# Perf monitor tools
+brew install glances
+brew install asitop
 # END Additions by DFG
 
 # Remove outdated versions from the cellar.
