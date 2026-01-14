@@ -907,6 +907,8 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>NeverBlockSystemShutdown</key>
+	<true/>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3557,6 +3559,8 @@
 			<string>/Users/dfg</string>
 		</dict>
 	</array>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -3602,6 +3606,8 @@
 	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
+	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>

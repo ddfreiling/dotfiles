@@ -20,10 +20,12 @@ alias doc="docker"
 alias docc="docker compose"
 alias doccupd="docker compose up -d --no-deps --force-recreate"
 alias doccps="docker compose ps --format \"table {{printf '%.12s' .ID}}\t{{.Name}}\t{{.Service}}\t{{.State}}\t{{.Status}}\""
+alias docclogs="docker compose logs --no-log-prefix"
 alias drun="docker run --rm -it"
 alias checkignore="ncdu -X "
 alias dir="du -sh ./* | sort -hr"
-alias getcerts="openssl s_client -showcerts -connect"
+alias showcerts="openssl s_client -showcerts -connect"
+alias opencert="openssl x509 -noout -text"
 
 # Kubectl aliases
 alias k="kubectl"
@@ -32,7 +34,8 @@ alias kedit="k edit"
 alias kp="k patch"
 alias kdesc="k describe pod"
 alias kapp="k apply -f "
-alias klog="k logs -f"
+alias klog="k logs -f --prefix=true"
+alias qlog="k logs -f --prefix=false"
 alias konf="k config"
 alias kpod="k get pod"
 alias kpods="k get pods --show-labels"
@@ -42,7 +45,7 @@ alias kdep="k get deployment"
 alias kdeps="k get deployments --show-labels"
 alias kontexts="k config get-contexts"
 alias kontext="k config use-context"
-alias ktx="kontext"
+alias ko="kontext"
 alias kroll="k rollout"
 alias kpvunclaim="k patch -p '{\"spec\":{\"claimRef\": null}}'"
 alias ktop="k top node"
@@ -52,6 +55,7 @@ alias ktoppm="k top pods -A --sort-by=memory | less"
 alias kvaultlogs="k logs -f --tail 200 deployment/vault-secrets-operator-controller-manager -n vault-secrets-operator"
 alias kvaultrole="k edit ClusterRoleBinding/vault-auth-delegator"
 alias kfor="k port-forward"
+alias kevents="k get events --sort-by='.metadata.creationTimestamp' -A --watch"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping
@@ -222,3 +226,15 @@ alias k3d-create="K3D_FIX_DNS=1 k3d cluster create demo --api-port 6550 -p 8080:
 # Github Copilot CLI
 alias 'gh?'='gh copilot suggest'
 alias 'gh!'='gh copilot explain'
+
+# ADB helpers
+alias adbd="adb devices"
+alias adbr="adb kill-server && adb start-server"
+alias adbvpn="ADB_MDNS_OPENSCREEN=0 adb start-server"
+
+alias deq="xattr -dr com.apple.quarantine"
+
+# Load private aliases if they exist
+if [ -f ~/.aliases_private ]; then
+  source ~/.aliases_private
+fi

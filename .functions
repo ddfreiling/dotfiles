@@ -127,6 +127,28 @@ function escape() {
   fi
 }
 
+# OpenSSL nice-to-have functions
+
+
+
+function getcert() {
+  if [ -z "${1}" ]; then
+    echo "ERROR: No domain specified."
+    return 1
+  fi
+  local domain="${1}"
+  local port="${2:-443}"
+  local serveraddr="${3:-$domain}"
+  echo "Getting cert for $domain at address $serveraddr:$port..."
+  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:$port 2>&1)"
+  echo "$result"
+  return 0
+}
+
+function getcertonly() {
+  getcert $@ | sed -n -e '/-.BEGIN/,/-.END/p'
+}
+
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
 function getcertnames() {
@@ -175,7 +197,7 @@ function getcertexpiry() {
   fi
   local port="${3:-443}"
   echo "Checking cert expiry for $domain at address $serveraddr..."
-  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:{$port} 2>/dev/null | openssl x509 -inform pem -noout -enddate -in /dev/stdin)"
+  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:$port 2>/dev/null | openssl x509 -inform pem -noout -enddate -in /dev/stdin)"
   echo "$result"
   return 0
 }
@@ -191,8 +213,9 @@ function getcertvalid() {
   else
     local serveraddr="${2}"
   fi
+  local port="${3:-443}"
   echo "Checking cert expiry for $domain at address $serveraddr..."
-  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:443 -verify 0 2>&1 | egrep "Verify return|subject=/serial")"
+  local result="$(echo | openssl s_client -showcerts -servername $domain -connect $serveraddr:$port -verify 0 2>&1 | egrep "Verify return|subject=/serial")"
   echo "$result"
   return 0
 }
@@ -351,6 +374,17 @@ function ketall {
   done
 }
 
+function kdrain {
+  NODE=$1
+  RED='\033[0;31m'
+  NC='\033[0m' # No Color
+  echo "Draining node $RED$NODE$NC while ignoring daemonsets and deleting empty-dirs..."
+  read "?Are you sure you want to continue? (press y):"
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    kubectl drain $NODE --ignore-daemonsets=true --delete-emptydir-data=true --grace-period=10
+  fi
+}
+
 function longhorn-nuke() {
   NAMESPACE=$1
   # Delete CRD finalizers, instances and definitions
@@ -401,8 +435,14 @@ function kdebug {
 
 function docco {
   OVERRIDE="${@:1:1}"
-  OVERRIDE_FILE=docker-compose.$OVERRIDE.yml
-  docker compose -f docker-compose.yml -f $OVERRIDE_FILE "${@:2}"
+  OVERRIDE_FILE=compose.$OVERRIDE.override.yml
+  docker compose -f compose.yml -f $OVERRIDE_FILE ${@:2}
+}
+
+function doccold {
+  OVERRIDE="${@:1:1}"
+  OVERRIDE_FILE=docker-compose.$OVERRIDE.override.yml
+  docker compose -f docker-compose.yml -f $OVERRIDE_FILE ${@:2}
 }
 
 function dockerinsp {
@@ -415,4 +455,18 @@ function whiledo {
     $@
     sleep 1
   done
+}
+
+function killport {
+  if [ -z "$1" ]; then
+    echo "Usage: killport <port>"
+    return 1
+  fi
+  sudo lsof -i tcp:$1 | awk 'NR!=1 {print $2}' | xargs sudo kill -9
+  echo "Killed processes using port $1"
+}
+
+function histclean {
+  sed -i.bak '' '/GITHUBPAT/d; /ghp_/d' ~/.zsh_history ~/.history 2>/dev/null
+  fc -R ~/.zsh_history
 }

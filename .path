@@ -23,7 +23,7 @@ PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Path to Ruby & gem executables
 PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-PATH="/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
+PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
 
 # Flutter
 PATH="$HOME/fvm/default/bin:$PATH"
