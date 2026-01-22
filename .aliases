@@ -34,8 +34,7 @@ alias kedit="k edit"
 alias kp="k patch"
 alias kdesc="k describe pod"
 alias kapp="k apply -f "
-alias klog="k logs -f --prefix=true"
-alias qlog="k logs -f --prefix=false"
+alias klog="k logs -f"
 alias konf="k config"
 alias kpod="k get pod"
 alias kpods="k get pods --show-labels"
@@ -224,8 +223,9 @@ alias k3s-cleanup="docker stop $(docker ps -a -q --filter 'name=k8s_') | xargs d
 alias k3d-create="K3D_FIX_DNS=1 k3d cluster create demo --api-port 6550 -p 8080:80@loadbalancer -p 8443:443@loadbalancer --volume $HOME/k3d-storage:/var/lib/rancher/k3s/storage@all --agents 1"
 
 # Github Copilot CLI
-alias 'gh?'='gh copilot suggest'
-alias 'gh!'='gh copilot explain'
+# deprecated, see https://github.com/github/copilot-cli/issues/53
+alias 'gh?'='zsh_gh_copilot_explain'
+alias 'gh!'='zsh_gh_copilot_suggest'
 
 # ADB helpers
 alias adbd="adb devices"

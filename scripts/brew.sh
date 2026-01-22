@@ -104,6 +104,7 @@ brew install ntpq
 brew install ncdu
 brew install lnav
 brew install gh
+brew install copilot-cli@prerelease
 brew install git-flow
 brew install tldr
 brew install mysql-client
@@ -167,6 +168,10 @@ brew install acli
 # Perf monitor tools
 brew install glances
 brew install asitop
+# Azure tools
+brew install az
+brew tap azure/functions
+brew install azure-functions-core-tools@4
 # END Additions by DFG
 
 # Remove outdated versions from the cellar.

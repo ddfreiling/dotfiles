@@ -78,6 +78,7 @@ plugins=(
   yarn
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-github-copilot
 )
 
 export JIRA_URL=https://notalib.atlassian.net
