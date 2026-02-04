@@ -22,10 +22,11 @@ alias doccupd="docker compose up -d --no-deps --force-recreate"
 alias doccps="docker compose ps --format \"table {{printf '%.12s' .ID}}\t{{.Name}}\t{{.Service}}\t{{.State}}\t{{.Status}}\""
 alias docclogs="docker compose logs --no-log-prefix"
 alias drun="docker run --rm -it"
-alias checkignore="ncdu -X "
 alias dir="du -sh ./* | sort -hr"
+alias ignoretest="ncdu -X "
+alias globtest="compgen -G"
 alias showcerts="openssl s_client -showcerts -connect"
-alias opencert="openssl x509 -noout -text"
+alias readcert="openssl x509 -noout -text"
 
 # Kubectl aliases
 alias k="kubectl"
@@ -33,7 +34,7 @@ alias ket="k get"
 alias kedit="k edit"
 alias kp="k patch"
 alias kdesc="k describe pod"
-alias kapp="k apply -f "
+alias kapp="k apply -f"
 alias klog="k logs -f"
 alias konf="k config"
 alias kpod="k get pod"
@@ -55,6 +56,8 @@ alias kvaultlogs="k logs -f --tail 200 deployment/vault-secrets-operator-control
 alias kvaultrole="k edit ClusterRoleBinding/vault-auth-delegator"
 alias kfor="k port-forward"
 alias kevents="k get events --sort-by='.metadata.creationTimestamp' -A --watch"
+alias kai="k ai"
+alias kust="kustomize build --enable-helm"
 
 ###########################################################################
 # Remapping of LS commands to use GNU LS with colors and directory grouping

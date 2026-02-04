@@ -10,6 +10,9 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 . <(kubectl completion zsh)
 . <(helm completion zsh)
 . <(flux completion zsh)
+. <(kubectl ai completion zsh)
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # NOTE: This takes way too long when initializing the shell
 # eval $(register-python-argcomplete ansible)

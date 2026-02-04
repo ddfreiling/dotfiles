@@ -46,6 +46,8 @@ export UPDATE_ZSH_DAYS=7
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+ZSH_GH_COPILOT_NO_CHECK=1
+
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -124,7 +126,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,path,aliases,functions,extra,completion}; do
+for file in ~/.{exports,path,aliases,functions,extra,completion,private}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -185,3 +187,12 @@ fpath=(/Users/B044554/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# GITHUB COPILOT CUSTOMIZATIONS
+# bindkey '˙' zsh_gh_copilot_explain  # bind Option+shift+\ to explain
+# bindkey '¸' zsh_gh_copilot_suggest  # bind Option+\ to suggest
+# Temporary workaround for copilot TLS issue
+# see https://github.com/github/copilot-cli/issues/333
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+autoload -U +X bashcompinit && bashcompinit

@@ -271,8 +271,13 @@ function shutdownreason() {
    | grep -iw 'recover[a-z]*\|power[a-z]*\|shut[a-z ]*down\|rsyslogd\|ups'"
 }
 
+########################
+# Kubernetes utilities #
+########################
+
 function kexec() {
-  kubectl exec --stdin --tty $@ -- /bin/bash
+  # Usage: kexec <PodName> <ContainerName (optional)>, will try both bash and sh
+  kubectl exec --stdin --tty $@ -- /bin/bash || kubectl exec --stdin --tty $@ -- /bin/sh
 }
 
 function kres() {

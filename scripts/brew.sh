@@ -128,6 +128,7 @@ brew install gitversion
 brew install kubernetes-cli
 brew install kubent # kube-no-trouble - checks if your kubernetes cluster can be upgraded safely.
 brew install krew
+brew install kubeconform
 brew install helm
 brew install ctop
 brew install kind
@@ -172,6 +173,17 @@ brew install asitop
 brew install az
 brew tap azure/functions
 brew install azure-functions-core-tools@4
+# Kubectl krew plugins installation
+kubectl krew install ctx
+kubectl krew install stern
+kubectl krew install cert-manager
+kubectl krew install pv-migrate
+kubectl krew install validate
+kubectl krew install resource-capacity
+kubectl krew install radar
+kubectl krew install trace
+kubectl krew install score
+kubectl krew install ai
 # END Additions by DFG
 
 # Remove outdated versions from the cellar.
